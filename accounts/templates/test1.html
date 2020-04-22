@@ -1,0 +1,58 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TestRestApi</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+</head>
+<body>
+<div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <br>
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+        </div>
+        <!-- /col -->
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+          <div class="pricing-option">
+            <div class="pricing-top">
+                <span class="special-label">{{user}}</span>
+                  <form action="{% url 'main' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="parameter" value="pos5">
+              <input type="submit" value="На главную" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="pricing-signup">
+            </form>
+          </div>
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <!-- /col -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+</body>

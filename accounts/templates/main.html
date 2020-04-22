@@ -1,0 +1,88 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TestRestApi</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+</head>
+<body>
+    <div id="dg">
+    <div class="container">
+      <div class="row centered">
+        <br>
+        <div class="col-lg-4">
+          <form action="{% url 'logout_view' %}" method="post">
+                    <div class="pricing-top">
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <span class="special-label">Привет,Админ</span>
+                                      {% csrf_token %}
+                                  <input type="submit" value="Выйти" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="btn btn-danger">
+                                 <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    {% else %}
+                        <span class="special-label">Привет,Пользователь</span>
+                                      {% csrf_token %}
+                                  <input type="submit" value="Выйти" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="btn btn-danger">
+                                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    {% endif %}
+                {% else%}
+                    <span class="special-label">Не зашли</span>
+                {% endif %}
+            </div>
+              </form>
+          <!-- START PRICING TABLE -->
+        </div>
+        <!-- /col -->
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+          <div class="pricing-option">
+            <div class="pricing-top">
+              <span class="special-label">Наш Тест</span>
+              </span>
+            </div>
+              <ul>
+                  <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="parameter" value="pos5">
+              <input type="submit" value="Войти" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="pricing-signup">
+            </form>
+              </ul>
+              <ul>
+                  <form action="{% url 'reg' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="parameter" value="pos5">
+              <input type="submit" value="Регистрация" style="display: block;box-sizing: border-box;width: 100%;padding: 5px;" class="pricing-signup">
+            </form>
+              </ul>
+          </div>
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <div class="col-lg-4">
+          <!-- START PRICING TABLE -->
+
+        </div>
+        <!-- /col -->
+
+
+        <!-- /col -->
+
+
+        <!-- /col -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+</body>
